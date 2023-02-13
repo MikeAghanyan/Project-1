@@ -5,7 +5,7 @@ class HomeCarusel(models.Model):
     img = models.ImageField('HomeCarusel image', upload_to='media')
     info1 = models.CharField('HomeCarusel info_1', max_length=15)
     info2 = models.CharField('HomeCarusel info_2', max_length=15, blank = True)
-    # verified = models.ImageField('HomeCarusel verified image', upload_to='media', blank=True)
+    verified = models.ImageField('HomeCarusel verified image', upload_to='media', blank=True)
     
     def __str__(self):
         return self.name

@@ -23,7 +23,7 @@ class IndexDetailView(DetailView):
     
     def get(self, request, id):
         topic_detail = HomeTopic.objects.get(pk=id)
-        trending_detail = HomeTrendingEpisode.objects.get(pk=id)
+        trending_detail = HomeTrendingEpisode.objects.all()[:4]
         return render(request, self.template_name, context={'topic_detail':topic_detail,
                                                             'trending_detail':trending_detail,
                                                             }) 
@@ -31,7 +31,7 @@ class IndexDetailView(DetailView):
 
 
 def about(request):
-    about_podcaster_list=AboutPodcaster.objects.all()
+    about_podcaster_list=HomeCarusel.objects.all()[:4]
     return render(request, 'pages/about.html', context={'about_podcaster':about_podcaster_list})
 
 
