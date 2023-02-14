@@ -26,39 +26,39 @@
                             </div>
                         </div>
 
-                        
-                        {% for i in genre_list %}
-                            {% for j in i.Full_list.all %}
+                        {% for i in all_genre_list %}
                         <div class="col-lg-6 col-12">
                             <div class="custom-block d-flex">
                                 <div class="">
                                     <div class="custom-block-icon-wrap">
                                         <div class="section-overlay"></div>
-                                        <a href="#" class="custom-block-image-wrap">
-                                            <img src="{{ j.img.url }}" class="custom-block-image img-fluid" alt="">
+                                        <a href="detail-page.html" class="custom-block-image-wrap">
+                                            <img src="{{ i.img.url }}" class="custom-block-image img-fluid" alt="">
+
+                                            <a href="#" class="custom-block-icon">
+                                                <i class="bi-play-fill"></i>
+                                            </a>
+                                        </a>
+                                    </div>
+
+                                    <div class="mt-2">
+                                        <a href="#" class="btn custom-btn">
+                                            Subscribe
                                         </a>
                                     </div>
                                 </div>
 
                                 <div class="custom-block-info">
                                     <div class="custom-block-top d-flex mb-1">
-                                        <small>Episode <span class="badge">{{ j.i_count }}</span></small>
+                                        <small>Episode <span class="badge">{{ i.i_count }}</span></small>
                                     </div>
 
                                     <h5 class="mb-2">
-                                        <a href="#">
-                                            {{ j.name }}
+                                        <a href="detail-page.html">
+                                            {{ i.topic }}
                                         </a>
                                     </h5>
-
-                                    <div class="profile-block d-flex">
-                                        <img src="{{ j.author_img.url }}" class="profile-block-image img-fluid" alt="">
-
-                                        <p>{{ j.author_name }}
-                                            <strong>{{ j.author_info }}</strong></p>
-                                    </div>
-
-                                    <p class="mb-0">{{ j.story }}</p>
+                                    <p class="mb-0"> {{ i.story }} </p>
 
                                     <div class="custom-block-bottom d-flex justify-content-between mt-3">
                                         <a href="#" class="bi-headphones me-1">
@@ -90,9 +90,7 @@
                                 </div>
                             </div>
                         </div>
-                            {% endfor %}
                         {% endfor %}
-                        
                         <div class="col-lg-4 col-12 mx-auto">
                             <nav aria-label="Page navigation example">
                                 <ul class="pagination pagination-lg justify-content-center mt-5">
@@ -116,10 +114,12 @@
                                 </ul>
                             </nav>
                         </div>
-
+                        
                     </div>
                 </div>
-            </section>            
+            </section>
+            
+            
         </main>
 
 {% endblock %}

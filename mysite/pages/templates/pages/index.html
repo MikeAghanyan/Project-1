@@ -159,7 +159,7 @@
                         {% for i in home_genre_list %}
                         <div class="col-lg-3 col-md-6 col-12 mb-4 mb-lg-0">
                             <div class="custom-block custom-block-overlay">
-                                <a href="{% url 'detail_page' i.slug %}" class="custom-block-image-wrap">
+                                <a href="{% url 'listing_page' i.id %}" class="custom-block-image-wrap">
                                     <img src="{{ i.img.url }}" class="custom-block-image img-fluid" alt="">
                                 </a>
 

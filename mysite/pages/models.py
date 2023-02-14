@@ -1,5 +1,6 @@
 from django.db import models
 
+''' люди - общая информация '''
 class HomeCarusel(models.Model):
     name = models.CharField('HomeCarusel name', max_length=40)
     img = models.ImageField('HomeCarusel image', upload_to='media')
@@ -11,17 +12,22 @@ class HomeCarusel(models.Model):
     def __str__(self):
         return self.name
 
+''' Жанр - группа '''
 class HomeGenre(models.Model):
     topic = models.CharField('HomeGenre topic', max_length=20)
     img = models.ImageField('HomeGenre image', upload_to='media')
     i_count = models.CharField('HomeGenre i_count', max_length=25)    
-    story = models.TextField('HomeGenre story')
+    ''' Надпись сверху листинг страницы '''
+    story = models.TextField('HomeGenre story') 
     slug = models.SlugField('HomeGenre link', unique=True, blank=True)
 
     def __str__(self):
         return self.topic
 
+
+''' Объект - отдельный подкаст '''
 class HomeEpisode(models.Model):
+    homegenre = models.ForeignKey(HomeGenre, on_delete=models.CASCADE, related_name='Full_list')
     name = models.CharField('HomeEpisode name', max_length=40)
     img = models.ImageField('HomeEpisode image', upload_to='media/podcast_poster')
     info = models.CharField('HomeEpisode info', max_length=115)
