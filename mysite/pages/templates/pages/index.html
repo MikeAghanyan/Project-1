@@ -23,7 +23,9 @@
                                     <div class="owl-carousel-info">
                                         <h4 class="mb-2">
                                             {{ i.name }}
-                                            <img src="{{ i.verified }}" class="owl-carousel-verified-image img-fluid" alt="">
+                                            {% if i.boolean %}
+                                                <img src="../../../media/media/verified.png" class="owl-carousel-verified-image img-fluid" alt="">
+                                            {% endif %}
                                         </h4>
 
                                         <span class="badge">{{ i.info1 }}</span>
@@ -60,7 +62,7 @@
                                 <h4 class="section-title">Lastest episodes</h4>
                             </div>
                         </div>
-                        {% for i in home_latest %}
+                        {% for i in home_latest_episode_list %}
                         <div class="col-lg-6 col-12">
                             <div class="custom-block d-flex">
                                 <div class="">
@@ -154,10 +156,10 @@
                                 <h4 class="section-title">Topics</h4>
                             </div>
                         </div>
-                        {% for i in home_topic_list %}
+                        {% for i in home_genre_list %}
                         <div class="col-lg-3 col-md-6 col-12 mb-4 mb-lg-0">
                             <div class="custom-block custom-block-overlay">
-                                <a href="{% url 'detail_page' i.id %}" class="custom-block-image-wrap">
+                                <a href="{% url 'detail_page' i.slug %}" class="custom-block-image-wrap">
                                     <img src="{{ i.img.url }}" class="custom-block-image img-fluid" alt="">
                                 </a>
 
@@ -187,7 +189,7 @@
                                 <h4 class="section-title">Trending episodes</h4>
                             </div>
                         </div>
-                        {% for i in home_trending %}
+                        {% for i in home_episode_list %}
                         <div class="col-lg-4 col-12">
                             <div class="custom-block custom-block-full">
                                 <div class="custom-block-image-wrap">

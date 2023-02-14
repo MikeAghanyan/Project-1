@@ -28,11 +28,11 @@
                                 <div class="col-lg-3 col-12">
                                     <div class="custom-block-icon-wrap">
                                         <div class="custom-block-image-wrap custom-block-image-detail-page">
-                                            <img src="{{ topic_detail.img.url }}" class="custom-block-image img-fluid" alt="">
+                                            <img src="{{ detail_genre_list.img.url }}" class="custom-block-image img-fluid" alt="">
                                         </div>
                                     </div>
                                 </div>
-
+                                
                                 <div class="col-lg-9 col-12">
                                     <div class="custom-block-info">
                                         <div class="custom-block-top d-flex mb-1">
@@ -45,38 +45,38 @@
 
                                             <small>
                                                 <i class="bi-clock-fill custom-icon"></i>
-                                                50 Minutes
+                                                {{ detail_genre_list.duration }} Minutes
                                             </small>
 
-                                            <small class="ms-auto">Episode <span class="badge">15</span></small>
+                                            <small class="ms-auto">Episode<span class="badge">{{ detail_genre_list.genre_count }}</span></small>
                                         </div>
 
-                                        <h2 class="mb-2">{{ topic_detail.topic }}</h2>
+                                        <h2 class="mb-2">{{ detail_genre_list.name }}</h2>
 
-                                        <p>{{ topic_detail.story }}</p>
+                                        <p>{{ detail_genre_list.story }}</p>
 
                                         <div class="profile-block profile-detail-block d-flex flex-wrap align-items-center mt-5">
                                             <div class="d-flex mb-3 mb-lg-0 mb-md-0">
-                                                <img src="" class="profile-block-image img-fluid" alt="">
+                                                <img src="{{ detail_genre_list.author_img.url }}" class="profile-block-image img-fluid" alt="">
 
                                                 <p>
-                                                    Elsa
-                                                    <img src="images/verified.png" class="verified-image img-fluid" alt="">
-                                                    <strong>Influencer</strong>
+                                                    {{ detail_genre_list.author }}
+                                                    <img width="25px" src="../../../media/media/verified.png" class="owl-carousel-verified-image img-fluid" alt="">                                                   
+                                                    <strong>{{ detail_genre_list.author_info }}</strong>
                                                 </p>
                                             </div>
 
                                             <ul class="social-icon ms-lg-auto ms-md-auto">
                                                 <li class="social-icon-item">
-                                                    <a href="#" class="social-icon-link bi-instagram"></a>
+                                                    <a href="https://instagram.com/" class="social-icon-link bi-instagram"></a>
                                                 </li>
 
                                                 <li class="social-icon-item">
-                                                    <a href="#" class="social-icon-link bi-twitter"></a>
+                                                    <a href="https://twitter.com/" class="social-icon-link bi-twitter"></a>
                                                 </li>
 
                                                 <li class="social-icon-item">
-                                                    <a href="#" class="social-icon-link bi-whatsapp"></a>
+                                                    <a href="https://facebook.com/" class="social-icon-link bi-facebook"></a>
                                                 </li>
                                             </ul>
                                         </div>
@@ -100,18 +100,16 @@
                             </div>
                         </div>
 
-                        {% for i in trending_detail %}
+                        {% for i in detail_episode_list %}
                         <div class="col-lg-4 col-12">
                             <div class="custom-block custom-block-full">
                                 <div class="custom-block-image-wrap">
-                                    <a href="{% url 'detail_page' i.id %}">
                                         <img src="{{ i.img.url }}" class="custom-block-image img-fluid" alt="">
                                     </a>
                                 </div>
 
                                 <div class="custom-block-info">
                                     <h5 class="mb-2">
-                                        <a href="{% url 'detail_page' i.id %}">
                                             {{ i.name }}
                                         </a>
                                     </h5>

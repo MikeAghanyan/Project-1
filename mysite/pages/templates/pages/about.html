@@ -46,7 +46,9 @@
                                 <div class="team-info">
                                     <h4 class="mb-2">
                                         {{ i.name }}
-                                        <img src="../../static/images/verified.png" class="verified-image img-fluid" alt="">
+                                    {% if i.boolean %}
+                                        <img width="25px" src="../../../media/media/verified.png" class="owl-carousel-verified-image img-fluid" alt="">
+                                    {% endif %}
                                     </h4>
 
                                     <span class="badge">{{ i.info1 }}</span>
